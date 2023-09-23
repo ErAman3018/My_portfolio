@@ -132,3 +132,16 @@ const sr= ScrollReveal({
 sr.reveal(`.home__data`)
 sr.reveal(`.home__handle`,{delay:700})
 sr.reveal(`.home__social, .home__scroll`,{delay:900,origin:'bottom'})
+
+// Message Sending 
+document.querySelector('.contact__form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    emailjs.init('JmMFSO2jOzlZeZOqS');
+    // Use your EmailJS template ID and user ID
+    emailjs.sendForm('service_5aycajp', 'template_v4u3k2d', this)
+        .then(function(response) {
+            alert('Message sent successfully!');
+        }, function(error) {
+            alert('Error sending message:', error);
+        });
+});
